@@ -5,11 +5,14 @@
 // 1 - wrap <Component {...pageProps} /> with <Scroll /> in _app.jsx
 // 2 - add <ScrollTicker /> wherever in the canvas
 // 3 - enjoy
+
+import * as THREE from 'three'
+
 import { addEffect, useFrame } from '@react-three/fiber'
+
 import Lenis from '@studio-freight/lenis'
 import { useEffect } from 'react'
 import { useRef } from 'react'
-import * as THREE from 'three'
 
 const state = {
   top: 0,
@@ -56,13 +59,15 @@ export default function Scroll({ children }) {
         width: '100%',
         height: '100%',
         top: 0,
-      }}>
+      }}
+    >
       <div
         ref={content}
         style={{
           position: 'relative',
           minHeight: '200vh',
-        }}>
+        }}
+      >
         {children}
       </div>
     </div>

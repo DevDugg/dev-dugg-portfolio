@@ -29,7 +29,7 @@ const AboutSection = () => {
             delay: 1.5,
           }}
         >
-          I develop web applications
+          I develop amazing web applications, lift weights,
           <br />
           and drink coffee
         </motion.p>

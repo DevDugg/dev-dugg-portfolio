@@ -1,13 +1,14 @@
 'use client'
 
-import { use, useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import gsap from 'gsap'
 import { useFrame } from '@react-three/fiber'
 import { useScroll } from '@react-three/drei'
+import { useUi } from './UiProvider'
 
 const ScrollManager = () => {
-  const [section, setSection] = useState<number>(0)
+  const { section, setSection } = useUi().sectionContext
 
   const data = useScroll()
   const lastScroll = useRef(0)
@@ -15,23 +16,6 @@ const ScrollManager = () => {
 
   data.fill.classList.add('top-0')
   data.fill.classList.add('absolute')
-
-  useFrame(() => {
-    if (isAnimating.current) {
-      lastScroll.current = data.offset
-      return
-    }
-
-    const activeSection = Math.floor(data.offset / data.pages)
-    if (data.offset > lastScroll.current && activeSection === 0) {
-      setSection(1)
-    }
-
-    if (data.offset < lastScroll.current && data.offset < 1 / (data.pages - 1)) {
-      setSection(0)
-    }
-    lastScroll.current = data.offset
-  })
 
   useEffect(() => {
     gsap.to(data.el, {
@@ -41,6 +25,23 @@ const ScrollManager = () => {
       onComplete: () => (isAnimating.current = false),
     })
   }, [section, data.el])
+
+  useFrame(() => {
+    if (isAnimating.current) {
+      lastScroll.current = data.offset
+      return
+    }
+
+    const curSection = Math.floor(data.offset * data.pages)
+    if (data.offset > lastScroll.current && curSection === 0) {
+      setSection(1)
+    }
+    if (data.offset < lastScroll.current && data.offset < 1 / (data.pages - 1)) {
+      setSection(0)
+    }
+    lastScroll.current = data.offset
+  })
+
   return null
 }
 export default ScrollManager

@@ -1,13 +1,13 @@
 import Container from '../dom/Container'
 import Section from '../dom/Section'
 
-const ContactSection = () => {
+const ProjectsSection = () => {
   return (
     <Section>
       <Container className='flex h-full flex-col items-start justify-center'>
-        <h1>Contact</h1>
+        <h1>Projects</h1>
       </Container>
     </Section>
   )
 }
-export default ContactSection
+export default ProjectsSection

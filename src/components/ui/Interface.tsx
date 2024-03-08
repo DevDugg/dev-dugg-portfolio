@@ -1,6 +1,6 @@
 import AboutSection from './AboutSection'
 import ContactSection from './ContactSection'
-import Section from '../dom/Section'
+import ProjectsSection from './ProjectsSection'
 import SkillsSection from './SkillsSection'
 
 const Interface = () => {
@@ -8,9 +8,7 @@ const Interface = () => {
     <div className='flex w-screen flex-col items-center'>
       <AboutSection />
       <SkillsSection />
-      <Section>
-        <h1>Projects</h1>
-      </Section>
+      <ProjectsSection />
       <ContactSection />
     </div>
   )

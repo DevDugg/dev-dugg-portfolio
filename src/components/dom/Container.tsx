@@ -6,7 +6,7 @@ interface IProps extends PropsWithChildren {
 
 const Container = ({ children, className }: IProps) => {
   return (
-    <div className='mx-auto size-full max-w-[1384px] px-8 max-lg:px-5 max-md:px-4'>
+    <div className='mx-auto h-screen w-full max-w-[1384px] px-8 max-lg:px-5 max-md:px-4'>
       {className ? <div className={className}>{children}</div> : children}
     </div>
   )

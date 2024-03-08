@@ -1,6 +1,7 @@
 import '@/global.css'
 
 import { Layout } from '@/components/dom/Layout'
+import UiProvider from '@/providers/UiProvider'
 
 export const metadata = {
   title: 'Dugg Dev Portfolio',
@@ -12,7 +13,9 @@ export default function RootLayout({ children }) {
     <html lang='en' className='antialiased'>
       <head />
       <body className='bg-BG'>
-        <Layout>{children}</Layout>
+        <Layout>
+          <UiProvider>{children}</UiProvider>
+        </Layout>
       </body>
     </html>
   )

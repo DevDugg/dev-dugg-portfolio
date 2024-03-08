@@ -3,6 +3,7 @@
 import Container from '../dom/Container'
 import Section from '../dom/Section'
 import { motion } from 'framer-motion'
+import { transition } from '@/motion/transition'
 
 const AboutSection = () => {
   return (
@@ -24,7 +25,7 @@ const AboutSection = () => {
             y: 0,
           }}
           transition={{
-            duration: 1,
+            ...transition,
             delay: 1.5,
           }}
         >
@@ -43,7 +44,7 @@ const AboutSection = () => {
             y: 0,
           }}
           transition={{
-            duration: 1,
+            ...transition,
             delay: 2,
           }}
         >

@@ -3,6 +3,7 @@
 import Container from '../dom/Container'
 import Section from '../dom/Section'
 import { motion } from 'framer-motion'
+import { transition } from '@/motion/transition'
 
 interface Skill {
   title: string
@@ -63,7 +64,7 @@ const SkillsSection = () => {
   return (
     <Section>
       <Container className='flex flex-col items-start justify-center'>
-        <motion.div whileInView={'visible'}>
+        <motion.div whileInView={'visible'} transition={transition}>
           <h2 className='text-5xl font-bold'>Skills</h2>
           <div className=' mt-8 space-y-4'>
             {skills.map((skill, index) => (
@@ -77,7 +78,7 @@ const SkillsSection = () => {
                     visible: {
                       opacity: 1,
                       transition: {
-                        duration: 1,
+                        ...transition,
                         delay: 1 + index * 0.2,
                       },
                     },
@@ -97,7 +98,7 @@ const SkillsSection = () => {
                       visible: {
                         scaleX: 1,
                         transition: {
-                          duration: 1,
+                          ...transition,
                           delay: 1 + index * 0.2,
                         },
                       },
@@ -121,7 +122,7 @@ const SkillsSection = () => {
                       visible: {
                         opacity: 1,
                         transition: {
-                          duration: 1,
+                          ...transition,
                           delay: 2 + index * 0.2,
                         },
                       },
@@ -141,7 +142,7 @@ const SkillsSection = () => {
                         visible: {
                           scaleX: 1,
                           transition: {
-                            duration: 1,
+                            ...transition,
                             delay: 2 + index * 0.2,
                           },
                         },

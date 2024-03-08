@@ -1,5 +1,8 @@
 'use client'
 
+import { motion } from 'framer-motion'
+import { transition } from '@/motion/transition'
+
 interface Props {
   label: string
   onClick: () => void
@@ -7,9 +10,14 @@ interface Props {
 
 const MenuButton = ({ label, onClick }: Props) => {
   return (
-    <button onClick={onClick} className='cursor-pointer text-2xl font-bold transition-colors hover:text-indigo-600'>
+    <motion.button
+      onClick={onClick}
+      className='cursor-pointer text-2xl font-bold'
+      whileHover={{ color: '#4F46E5' }}
+      transition={{ ...transition, duration: 0.3 }}
+    >
       {label}
-    </button>
+    </motion.button>
   )
 }
 

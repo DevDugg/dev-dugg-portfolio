@@ -2,6 +2,7 @@
 
 import { PropsWithChildren } from 'react'
 import { motion } from 'framer-motion'
+import { transition } from '@/motion/transition'
 
 const Section = ({ children }: PropsWithChildren) => {
   return (
@@ -14,11 +15,8 @@ const Section = ({ children }: PropsWithChildren) => {
       whileInView={{
         opacity: 1,
         y: 0,
-        transition: {
-          duration: 1,
-          delay: 0.6,
-        },
       }}
+      transition={transition}
     >
       {children}
     </motion.section>

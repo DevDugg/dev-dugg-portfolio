@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 
 import gsap from 'gsap'
 import { useFrame } from '@react-three/fiber'
@@ -8,7 +8,10 @@ import { useScroll } from '@react-three/drei'
 import { useUi } from './UiProvider'
 
 const ScrollManager = () => {
-  const { section, setSection } = useUi().sectionContext
+  const { menuContext, sectionContext } = useUi()
+
+  const { section, setSection } = sectionContext
+  const { setMenu } = menuContext
 
   const data = useScroll()
   const lastScroll = useRef(0)
@@ -25,6 +28,10 @@ const ScrollManager = () => {
       onComplete: () => (isAnimating.current = false),
     })
   }, [section, data.el])
+
+  useEffect(() => {
+    setMenu(false)
+  }, [section, setMenu])
 
   useFrame(() => {
     if (isAnimating.current) {

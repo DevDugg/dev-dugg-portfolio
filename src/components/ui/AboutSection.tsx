@@ -29,9 +29,9 @@ const AboutSection = () => {
             delay: 1.5,
           }}
         >
-          I develop amazing web applications, lift weights,
+          I develop amazing web applications,
           <br />
-          and drink coffee
+          lift weights, and drink coffee
         </motion.p>
         <motion.button
           className='mt-16 rounded-lg bg-indigo-600 px-8 py-4 text-lg font-bold text-white'

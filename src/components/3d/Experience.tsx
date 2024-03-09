@@ -1,12 +1,14 @@
 'use client'
 
+import OfficeModel from './OfficeModel'
 import { Suspense } from 'react'
-import dynamic from 'next/dynamic'
 import { motion } from 'framer-motion-3d'
 import { transition } from '@/motion/transition'
 import { useUi } from '@/providers/UiProvider'
 
-const OfficeModel = dynamic(() => import('@/components/3d/OfficeModel').then((mod) => mod.default), { ssr: false })
+// import dynamic from 'next/dynamic'
+
+// const OfficeModel = dynamic(() => import('@/components/3d/OfficeModel').then((mod) => mod.default), { ssr: false })
 
 const Experience = () => {
   const { section } = useUi().sectionContext
